@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import mockUserData from './mocks/user';
+import './App.scss';
 
-function App() {
+const App404Page = lazy(() => import('./pages/404/404'));
+const DashboardPage = lazy(() => import('./pages/dashboard/Dashboard'));
+
+export const App = () => {
+  const userData = localStorage.getItem('userData');
+  if (!userData) {
+    localStorage.setItem('userData', JSON.stringify(mockUserData));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Navigate to='/dashboard' />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/404' element={<App404Page />} />
+        <Route path='*' element={<Navigate to='/404' />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
