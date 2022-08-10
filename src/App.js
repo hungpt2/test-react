@@ -16,8 +16,7 @@ export const App = () => {
       <Routes>
         <Route exact path='/' element={<Navigate to='/dashboard' />} />
         <Route path='/dashboard' element={<DashboardPage />} />
-        <Route path='/404' element={<App404Page />} />
-        <Route path='*' element={<Navigate to='/404' />} />
+        <Route path='/404-page' element={<App404Page />} />
       </Routes>
     </BrowserRouter>
   );
