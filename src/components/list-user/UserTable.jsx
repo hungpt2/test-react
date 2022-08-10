@@ -82,11 +82,12 @@ export const UserTable = (props) => {
     },
     {
       label: 'Action',
+      align: 'center',
       render: (row)=>{
         return <div>
-          <Button type='info' size='small' icon="document" onClick={viewUser.bind(this, row)} />
-          <Button type='warning' size='small' icon="edit" onClick={editUser.bind(this, row)} />
-          <Button type='danger' size='small' icon="delete" onClick={deleteUser.bind(this, row)} />
+          <Button className='btn-icon' type='info' size='small' icon="document" onClick={viewUser.bind(this, row)} />
+          <Button className='btn-icon' type='warning' size='small' icon="edit" onClick={editUser.bind(this, row)} />
+          <Button className='btn-icon' type='danger' size='small' icon="delete" onClick={deleteUser.bind(this, row)} />
         </div>
       }
     }

@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import mockUserData from './mocks/user';
 import './App.scss';
 
@@ -12,10 +12,9 @@ export const App = () => {
     localStorage.setItem('userData', JSON.stringify(mockUserData));
   }
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/test-react'>
       <Routes>
-        <Route exact path='/' element={<Navigate to='/dashboard' />} />
-        <Route path='/dashboard' element={<DashboardPage />} />
+        <Route path='/' element={<DashboardPage />} />
         <Route path='/404-page' element={<App404Page />} />
       </Routes>
     </BrowserRouter>

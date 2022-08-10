@@ -9,3 +9,7 @@
 .el-table__body {
   @apply w-full #{!important};
 }
+
+.btn-icon span {
+  @apply hidden;
+}

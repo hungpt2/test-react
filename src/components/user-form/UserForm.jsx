@@ -64,7 +64,7 @@ export const UserForm = (props) => {
     >
       <Loading loading={loading}>
         <Dialog.Body>
-          <Form ref={formRef} model={formUser} labelWidth="120">
+          <Form ref={formRef} model={formUser} labelWidth='120'>
             {
               user && user.id ?
                 <Form.Item label='ID'>
@@ -78,23 +78,23 @@ export const UserForm = (props) => {
             <Form.Item label='Last Name' prop='last_name' rules={{ required: true, message: 'Please input last name', trigger: 'blur' }}>
               <Input className='w-full' value={formUser.last_name} onChange={onChange.bind(this, 'last_name')}></Input>
             </Form.Item>
-            <Form.Item label='Email' prop='email' rules={{ required: true, message: 'Please input email', trigger: 'blur' }}>
+            <Form.Item label='Email' prop='email' rules={{ required: true, type: 'email', message: 'Please input email', trigger: 'blur' }}>
               <Input className='w-full' value={formUser.email} onChange={onChange.bind(this, 'email')}></Input>
             </Form.Item>
             <Form.Item label='Gender' prop='gender' rules={{ required: true, message: 'Please select gender', trigger: 'blur' }}>
-              <Select className='w-full' value={formUser.gender} placeholder="Select Gender" onChange={onChange.bind(this, 'gender')}>
-                <Select.Option label="Bigender" value="Bigender"></Select.Option>
-                <Select.Option label="Male" value="Male"></Select.Option>
-                <Select.Option label="Female" value="Female"></Select.Option>
+              <Select className='w-full' value={formUser.gender} placeholder='Select Gender' onChange={onChange.bind(this, 'gender')}>
+                <Select.Option label='Bigender' value='Bigender'></Select.Option>
+                <Select.Option label='Male' value='Male'></Select.Option>
+                <Select.Option label='Female' value='Female'></Select.Option>
               </Select>
             </Form.Item>
           </Form>
         </Dialog.Body>
-        <Dialog.Footer className="dialog-footer">
+        <Dialog.Footer className='dialog-footer'>
           <Button onClick={closeModal}>Cancel</Button>
           {
             type !== 'view' ?
-              <Button type="primary" onClick={onSubmit}>{ type === 'new' ? 'Create' : 'Update' }</Button>
+              <Button type='primary' onClick={onSubmit}>{ type === 'new' ? 'Create' : 'Update' }</Button>
               : ''
           }
         </Dialog.Footer>
